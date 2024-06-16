@@ -6,9 +6,14 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('login', 'Auth::login');
-$routes->get('/', 'Auth::login');
+$routes->get('/', 'PublicController::trypredictions');
 $routes->post('auth/login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
+
+$routes->get('try-predictions', 'PublicController::trypredictions');
+$routes->post('postPrediction', 'PublicController::postPrediction');
+$routes->get('try-recomendations', 'PublicController::tryrekomendations');
+$routes->post('postRecommendation', 'PublicController::postRecommendation');
 
 $routes->group('admin', ['filter' => 'role'], function ($routes) {
     $routes->get('/', 'Admin::index');
