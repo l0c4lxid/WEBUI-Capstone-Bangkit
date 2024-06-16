@@ -11,26 +11,17 @@ $routes->post('auth/login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
 
 $routes->group('admin', ['filter' => 'role'], function ($routes) {
+    $routes->get('/', 'Admin::index');
     $routes->get('dashboard', 'Admin::index');
-    $routes->get('users', 'Admin::users');
-    $routes->get('article', 'Admin::article');
-    $routes->get('models', 'Admin::models');
-    $routes->get('ml', 'Admin::ml');
+    $routes->get('predictions', 'Admin::predictions');
+    $routes->get('recomendation', 'Admin::recomendation');
+    $routes->get('try-predictions', 'Admin::trypredictions');
+    $routes->post('postPrediction', 'Admin::postPrediction');
+    $routes->get('try-recomendations', 'Admin::tryrekomendations');
+    $routes->post('postRecommendation', 'Admin::postRecommendation');
     // tambahkan rute admin lainnya
 });
 
-$routes->group('jurnalis', ['filter' => 'role'], function ($routes) {
-    $routes->get('/', 'Jurnalis::index');
-    $routes->get('dashboard', 'Jurnalis::index');
-    $routes->get('post', 'Jurnalis::post');
-    $routes->get('analyst', 'Jurnalis::analyst');
-    $routes->get('setting', 'Jurnalis::setting');
-    $routes->post('generate', 'Jurnalis::generate');
-    $routes->post('save', 'Jurnalis::saveanalyst');
-    $routes->get('detail/(:num)', 'Jurnalis::postdetail/$1');
-
-    // tambahkan rute jurnalis lainnya
-});
 
 $routes->get('api/analysts/(:num)', 'Jurnalis::getAnalystDetail/$1');
 $routes->post('api/generate', 'Jurnalis::generateapi');

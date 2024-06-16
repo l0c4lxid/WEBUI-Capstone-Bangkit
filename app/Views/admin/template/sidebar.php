@@ -18,7 +18,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="<?= base_url('dashboard/admin'); ?>"
+                <a href="<?= base_url('admin/dashboard'); ?>"
                     class="nav-link <?= $subjudul == 'admin' ? 'active' : '' ?>">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -27,39 +27,39 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('dashboard/admin/users'); ?>"
-                    class="nav-link <?= $subjudul == 'user' ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/predictions'); ?>"
+                    class="nav-link <?= $subjudul == 'Predictions' ? 'active' : '' ?>">
                     <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
-                    <i class=" nav-icon fas fa-users"></i>
+                    <i class=" nav-icon fas fa-search"></i>
                     <p>
-                        User
+                        Predictions
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('dashboard/admin/article'); ?>"
-                    class="nav-link <?= $subjudul == 'article' ? 'active' : '' ?>">
-                    <i class="nav-icon fas fa-clone"></i>
+                <a href="<?= base_url('admin/recomendation'); ?>"
+                    class="nav-link <?= $subjudul == 'recomendation' ? 'active' : '' ?>">
+                    <i class="nav-icon fab fa-slack-hash"></i>
                     <p>
-                        Article
+                        Rekomendation
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('dashboard/admin/models'); ?>"
-                    class="nav-link <?= $subjudul == 'models' ? 'active' : '' ?>">
-                    <i class="nav-icon fas fa-briefcase"></i>
+                <a href="<?= base_url('admin/try-predictions'); ?>"
+                    class="nav-link <?= $subjudul == 'try-predictions' ? 'active' : '' ?>">
+                    <i class="nav-icon fas fa-fingerprint"></i>
                     <p>
-                        Models
+                        Try Predictions
                     </p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url("dashboard/admin/ml") ?>"
-                    class="nav-link <?= $subjudul == 'ml' ? 'active' : '' ?>">
-                    <i class="nav-icon fas fa-database"></i>
+                <a href="<?= base_url("admin/try-recomendations") ?>"
+                    class="nav-link <?= $subjudul == 'try-rekomendations' ? 'active' : '' ?>">
+                    <i class="nav-icon fas fa-key"></i>
                     <p>
-                        Data Ml
+                        Try Rekomendations
                     </p>
                 </a>
             </li>
