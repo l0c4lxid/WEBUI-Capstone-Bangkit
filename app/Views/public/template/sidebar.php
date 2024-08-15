@@ -28,12 +28,22 @@
                     </p>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="<?= base_url("try-recomendations") ?>"
                     class="nav-link <?= $subjudul == 'try-rekomendations' ? 'active' : '' ?>">
                     <i class="nav-icon fas fa-key"></i>
                     <p>
                         Rekomendations
+                        <span class="right badge badge-danger">New</span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url("try-ai") ?>" class="nav-link <?= $subjudul == 'try-ai' ? 'active' : '' ?>">
+                    <i class="nav-icon fas fa-search"></i>
+                    <p>
+                        Chat AI
                         <span class="right badge badge-danger">New</span>
                     </p>
                 </a>

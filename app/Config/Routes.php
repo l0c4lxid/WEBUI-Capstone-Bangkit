@@ -14,6 +14,8 @@ $routes->get('try-predictions', 'PublicController::trypredictions');
 $routes->post('postPrediction', 'PublicController::postPrediction');
 $routes->get('try-recomendations', 'PublicController::tryrekomendations');
 $routes->post('postRecommendation', 'PublicController::postRecommendation');
+$routes->get('try-ai', 'PublicController::chatAI');
+$routes->post('postChatAI', 'PublicController::postChatAI');
 
 $routes->group('admin', ['filter' => 'role'], function ($routes) {
     $routes->get('/', 'Admin::index');

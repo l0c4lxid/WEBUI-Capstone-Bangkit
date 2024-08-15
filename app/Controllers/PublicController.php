@@ -108,5 +108,50 @@ class PublicController extends BaseController
             }
         }
     }
+    public function chatAI()
+    {
+        $data = [
+            'judul' => 'Try Chat AI Mental Health',
+            'subjudul' => 'try-ai',
+            'page' => 'public/chat-ai.php',
+            'navbar' => 'public/template/navbar.php',
+            'footer' => 'public/template/footer.php',
+            'sidebar' => 'public/template/sidebar.php',
+            'response' => session()->getFlashdata('response')
+        ];
+        return view('public/template/header', $data);
+    }
+
+    public function postChatAI()
+    {
+        if ($this->request->getMethod() === 'post') {
+            $chat = $this->request->getPost('chat');
+
+            // Initialize HTTP client
+            $client = \Config\Services::curlrequest();
+
+            // Make the API request
+            $response = $client->request('POST', $this->apiBaseUrl . '/api/chat', [
+                'form_params' => [
+                    'chat' => $chat
+                ]
+            ]);
+
+            // Check if the response is successful
+            if ($response->getStatusCode() == 201) {
+                // Decode the JSON response
+                $responseData = json_decode($response->getBody(), true);
+
+                if ($responseData['Status'] == 201) {
+                    session()->setFlashdata('response', $responseData['Data']);
+                    return redirect()->to('/try-ai')->with('pesan', 'Chat posted successfully');
+                } else {
+                    return redirect()->to('/try-ai')->with('pesan', 'Error: ' . $responseData['Message']);
+                }
+            } else {
+                return redirect()->to('/try-ai')->with('pesan', 'Error: Could not post chat to API');
+            }
+        }
+    }
 }
 
